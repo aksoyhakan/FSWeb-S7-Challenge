@@ -29,13 +29,14 @@ const SCDelivery = styled.p`
 const Supplier = (props) => {
   const { supplierInfo } = props;
   return (
-    <SCSupplierDiv>
+    <SCSupplierDiv data-cy={supplierInfo.name}>
       <img
         styled={{ display: "block" }}
         src={supplierInfo.url}
         width="200px"
         height="200px"
       ></img>
+
       <p>{supplierInfo.name}</p>
       <p>
         {supplierInfo.detailInfo.map((item, index) => (

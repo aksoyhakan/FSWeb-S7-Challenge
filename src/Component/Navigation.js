@@ -27,16 +27,18 @@ const SCNameDiv = styled.div`
   font-weight: bold;
   font-size: 1.5rem;
   margin: 0;
+  min-width: 200px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 715px) {
     font-size: 1rem;
     margin: 0;
-    padding: 0;
+    text-align: left;
   }
 
   @media (max-width: 550px) {
     margin-top: 1rem;
     padding: 0;
+    text-align: center;
   }
 `;
 
@@ -82,13 +84,25 @@ const Navigation = (props) => {
     <SCNavDiv>
       <SCNameDiv>Where is my food???</SCNameDiv>
       <SCLinkDiv>
-        <Link style={{ textDecoration: "none" }} to={`${url}`}>
+        <Link
+          data-cy="home-link"
+          style={{ textDecoration: "none" }}
+          to={`${url}`}
+        >
           <SCLink>Home</SCLink>
         </Link>
-        <Link style={{ textDecoration: "none" }} to={`${url}order`}>
+        <Link
+          data-cy="order-link"
+          style={{ textDecoration: "none" }}
+          to={`${url}order`}
+        >
           <SCLink>Order</SCLink>
         </Link>
-        <Link style={{ textDecoration: "none" }} to={`${url}help`}>
+        <Link
+          data-cy="help-link"
+          style={{ textDecoration: "none" }}
+          to={`${url}help`}
+        >
           <SCLink>Help</SCLink>
         </Link>
       </SCLinkDiv>

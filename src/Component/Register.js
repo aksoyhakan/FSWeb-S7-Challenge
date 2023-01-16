@@ -13,7 +13,7 @@ const Register = (props) => {
     display:${(props) => (props.orderBoolean ? "none" : "block")}`;
 
   return (
-    <SCRegister orderBoolean={orderBoolean}>
+    <SCRegister data-cy="register" orderBoolean={orderBoolean}>
       <p>Congrats... Pizza is on its way!!!</p>
       <p>Enjoy your pizza</p>
       <img

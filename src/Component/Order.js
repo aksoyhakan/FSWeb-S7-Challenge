@@ -81,6 +81,10 @@ const SCNoteInput = styled.input`
   margin: 1rem 2rem;
   width: 40%;
   padding: 1rem 0.5rem;
+
+  @media (max-width: 450px) {
+    width: 70%;
+  }
 `;
 
 const SCSubmitDiv = styled.div`
@@ -258,7 +262,7 @@ const Order = (props) => {
       <SCOrderDiv orderBoolean={orderBoolean}>
         <SCFixSen>Build Your Own Pizza</SCFixSen>
         <SCFixImg src="https://rare-gallery.com/uploads/posts/820554-Fast-food-Pizza-Tomatoes-Wood-planks-Foliage-Basil.jpg" />
-        <SCFixExp>Build your own piza</SCFixExp>
+        <SCFixExp data-cy="order-fix-exp">Build your own pizza</SCFixExp>
         <SCOrderForm onSubmit={handleSubmit}>
           <SCLabel htmlFor="name">
             Please enter your name{" "}
@@ -269,6 +273,7 @@ const Order = (props) => {
             id="name"
             name="name"
             value={order.name}
+            data-cy="name-input"
             placeholder="Please enter your name properly"
             onChange={handleChange}
           ></SCNoteInput>
@@ -282,10 +287,13 @@ const Order = (props) => {
             placeholder="Select pizza size"
             value={order.size}
             onChange={handleChange}
+            data-cy="select-input"
           >
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
+            <option data-cy="Large" value="Large">
+              Large
+            </option>
             <option value="Extra-Large">Extra-Large</option>
             <option value="King-Size">King-Size</option>
           </SCSelect>
@@ -311,6 +319,7 @@ const Order = (props) => {
               id="creamy-alfredo"
               name="sauce"
               value="alfredo"
+              data-cy="alfredo"
               checked={order.sauce === "alfredo"}
               onClick={handleChange}
             ></SCInput>
@@ -358,6 +367,7 @@ const Order = (props) => {
                 id="pepperoni"
                 name="ingredients"
                 value="pepperoni"
+                data-cy="pepperoni"
                 checked={order.ingredients.includes("pepperoni")}
                 onClick={handleChange}
               ></SCInput>
@@ -368,6 +378,7 @@ const Order = (props) => {
                 id="bacon"
                 name="ingredients"
                 value="bacon"
+                data-cy="bacon"
                 checked={order.ingredients.includes("bacon")}
                 onClick={handleChange}
               ></SCInput>
@@ -378,6 +389,7 @@ const Order = (props) => {
                 id="ham"
                 name="ingredients"
                 value="ham"
+                data-cy="ham"
                 checked={order.ingredients.includes("ham")}
                 onClick={handleChange}
               ></SCInput>
@@ -388,6 +400,7 @@ const Order = (props) => {
                 id="meatballs"
                 name="ingredients"
                 value="meatballs"
+                data-cy="meatballs"
                 checked={order.ingredients.includes("meatballs")}
                 onClick={handleChange}
               ></SCInput>
@@ -566,6 +579,7 @@ const Order = (props) => {
               id="gluten"
               name="gluten"
               value="gluten"
+              data-cy="gluten"
               checked={order.gluten}
               onClick={handleChange}
             ></SCInput>
@@ -579,6 +593,7 @@ const Order = (props) => {
               id="note"
               name="note"
               value={order.note}
+              data-cy="note-input"
               placeholder="Anything else you would like to add?"
               onChange={handleChange}
             ></SCNoteInput>
@@ -590,9 +605,10 @@ const Order = (props) => {
               value={order.quantity}
               onChange={handleChange}
               name="quantity"
+              data-cy="quantity-input"
               min="1"
             ></SCNumber>
-            <SCButton disabled={submitDisabled} type="submit">
+            <SCButton data-cy="submit" disabled={submitDisabled} type="submit">
               Add to Order $ {orderPrice ? orderPrice : 0}
             </SCButton>
           </SCSubmitDiv>
